@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import { BrowserRouter, Route } from "react-router-dom";
-import "semantic-ui-css/semantic.min.css";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import rootReducer from "./rootReducer";
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { BrowserRouter, Route } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './rootReducer';
 import App from './App';
 import registerServiceWorker from './serviceWorker';
 
@@ -21,7 +21,7 @@ ReactDOM.render(
             <Route component={App} />
         </Provider>
     </BrowserRouter>,
-    document.getElementById("root")
+    document.getElementById('root')
 );
 registerServiceWorker();
 

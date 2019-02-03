@@ -1,4 +1,4 @@
-import {POTS_FETCHED, POT_SAVED} from "../types"
+import {POTS_FETCHED, POT_SAVED, STATISTICS_FETCHED} from "../types"
 import api from "../api";
 
 const potsFetched = data => ({
@@ -11,11 +11,21 @@ const potSaved = data => ({
     data
 });
 
+const statisticsFetched = data => ({
+    type: STATISTICS_FETCHED,
+    data
+});
+
 
 export const fetchPots = () => dispatch =>
     api.pots
         .fetchAll()
         .then(allPots => dispatch(potsFetched({allPots})));
+
+export const fetchStatistic = (statisticRequest) => dispatch =>
+    api.pots
+        .fetchStatistic(statisticRequest)
+        .then(statistics => dispatch(statisticsFetched({statistics})));
 
 export const fetchPot = () => dispatch =>
     api.pots

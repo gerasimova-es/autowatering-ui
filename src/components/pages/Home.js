@@ -119,22 +119,7 @@ class HomePage extends Component {
                         <Header as='h2' color='red' textAlign='center'>
                             Горшки хрюшки
                         </Header>
-                        <Table color='green' inverted basic style={{margin: '2em'}}>
-                            <Table.Header>
-                                <Table.Row>
-                                    <Table.HeaderCell>Код</Table.HeaderCell>
-                                    <Table.HeaderCell>Имя</Table.HeaderCell>
-                                    <Table.HeaderCell>Миимальная влажность</Table.HeaderCell>
-                                    <Table.HeaderCell>Интервал проверки, мин</Table.HeaderCell>
-                                    <Table.HeaderCell>Время работы помпы, с</Table.HeaderCell>
-                                    <Table.HeaderCell>Редактирование</Table.HeaderCell>
-                                </Table.Row>
-                            </Table.Header>
 
-                            <Table.Body>
-                                {items}
-                            </Table.Body>
-                        </Table>
                     </Grid.Column>
                     {showPotEditForm && <Grid.Row centered columns={4}>
                         <Grid.Column style={{maxWidth: 450}}>

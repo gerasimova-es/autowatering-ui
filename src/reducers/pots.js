@@ -1,9 +1,11 @@
-import { POTS_FETCHED } from "../types";
+import {POTS_FETCHED, STATISTICS_FETCHED} from "../types";
 
-export default function pots(state = {allPots: []}, action = {}) {
+export default function pots(state = {allPots: [], statistics: []}, action = {}) {
     switch (action.type) {
         case POTS_FETCHED:
-            return action.data;
+            return { ...state, ...action.data };
+        case STATISTICS_FETCHED:
+            return { ...state, ...action.data };
         default:
             return state;
     }
