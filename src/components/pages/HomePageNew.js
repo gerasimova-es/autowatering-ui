@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import InlineError from '../messages/InlineError'
-import DatePicker from '../custom/DatePicker'
 import {
     Container,
     Divider,
@@ -24,6 +23,7 @@ import {
 } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchPots, savePot, fetchStatistic} from '../../actions/pots';
+import DateTimeFrom from '../forms/DateTimeForm'
 
 class HomePageNew extends Component {
     state = {
@@ -37,7 +37,9 @@ class HomePageNew extends Component {
             wateringDuration: ''
         },
         loading: false,
-        errors: {}
+        errors: {},
+        dateFrom: '',
+        dateTo: ''
     };
 
     componentDidMount = () => this.onInit(this.props);
@@ -57,7 +59,7 @@ class HomePageNew extends Component {
     addNewPot = () => {
         this.setState({
             showModal: true,
-            potTableName: 'Добавлениеx',
+            potTableName: 'Добавление',
             tableForAdd: true,
             potForEdit: {
                 code: '',
@@ -123,10 +125,21 @@ class HomePageNew extends Component {
 
         this.props.fetchStatistic({
             code: 'AUTHORIUM',
-            dateFrom: new Date(2017, 0, 1).toISOString().slice(0,10)+' 00:00:00',
+            dateFrom: new Date(2017, 0, 1).toISOString().slice(0, 10) + ' 00:00:00',
             // dateTo: new Date().format('yyyy-MM-dd HH:mm:ss')
-            dateTo: new Date().toISOString().slice(0,10)+' 00:00:00'
+            dateTo: new Date().toISOString().slice(0, 10) + ' 00:00:00'
         });
+    };
+
+    handleChange = (event, {name, value}) => {
+        console.log(event);
+        if (this.state.hasOwnProperty(name)) {
+            this.setState({[name]: value});
+        }
+    };
+
+    handleChangee = (event) => {
+        console.log({event});
     };
 
     render() {
@@ -146,7 +159,7 @@ class HomePageNew extends Component {
         ));
 
 
-        const {errors, loading, potForEdit, showModal, potTableName, tableForAdd} = this.state;
+        const {errors, loading, potForEdit, showModal, potTableName, tableForAdd, dateFrom, dateTo} = this.state;
 
         return (
             <div>
@@ -202,10 +215,7 @@ class HomePageNew extends Component {
                     <Header as='h1'>Статистика:</Header>
                     <p>В таблице представлены данные по влажности и времени</p>
                 </Container>
-                <Container style={{marginTop: '1em'}}>
-                    <Button onClick={() => this.fetchStatistics()}>Получить статистику</Button>
-                    <DatePicker/>
-                </Container>
+                <DateTimeFrom/>
 
 
                 <Modal open={showModal}>
