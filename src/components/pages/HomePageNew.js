@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import InlineError from '../messages/InlineError'
 import {
     Container,
     Divider,
@@ -22,8 +21,10 @@ import {
     Select
 } from 'semantic-ui-react'
 import {connect} from 'react-redux'
+import InlineError from '../messages/InlineError'
 import {fetchPots, savePot, fetchStatistic} from '../../actions/pots';
 import DateTimeFrom from '../forms/DateTimeForm'
+
 
 class HomePageNew extends Component {
     state = {
@@ -125,9 +126,9 @@ class HomePageNew extends Component {
 
         this.props.fetchStatistic({
             code: 'AUTHORIUM',
-            dateFrom: new Date(2017, 0, 1).toISOString().slice(0, 10) + ' 00:00:00',
+            dateFrom: `${new Date(2017, 0, 1).toISOString().slice(0, 10)  } 00:00:00`,
             // dateTo: new Date().format('yyyy-MM-dd HH:mm:ss')
-            dateTo: new Date().toISOString().slice(0, 10) + ' 00:00:00'
+            dateTo: `${new Date().toISOString().slice(0, 10)  } 00:00:00`
         });
     };
 
@@ -166,7 +167,7 @@ class HomePageNew extends Component {
                 <Menu fixed='top' inverted style={{background: '#088A85'}}>
                     <Container>
                         <Menu.Item as='h3' header>
-                            <Image size='mini' src={process.env.PUBLIC_URL + '/flower.png'}
+                            <Image size='mini' src={`${process.env.PUBLIC_URL  }/flower.png`}
                                    style={{marginRight: '1.5em'}}/>
                             Система полива
                         </Menu.Item>
@@ -296,7 +297,7 @@ class HomePageNew extends Component {
                         </Grid>
 
                         <Divider inverted section/>
-                        <Image centered size='mini' src={process.env.PUBLIC_URL + '/flower.png'}/>
+                        <Image centered size='mini' src={`${process.env.PUBLIC_URL  }/flower.png`}/>
                         <List horizontal inverted divided link size='small'>
                             <List.Item as='a' href='#'>
                                 Site Map

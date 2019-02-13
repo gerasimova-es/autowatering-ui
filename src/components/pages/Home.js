@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import {fetchPots, savePot} from "../../actions/pots";
 import {
     Button,
     Container,
@@ -20,6 +19,7 @@ import {
     Form,
     Message
 } from 'semantic-ui-react';
+import {fetchPots, savePot} from "../../actions/pots";
 
 const getWidth = () => {
     const isSSR = typeof window === 'undefined';
@@ -56,7 +56,7 @@ class HomePage extends Component {
 
     onChange = e =>
         this.setState({
-            potForEdit: { ...this.state.potForEdit, [e.target.name]: e.target.value }
+            potForEdit: {...this.state.potForEdit, [e.target.name]: e.target.value}
         });
 
     savePot = () => {
@@ -125,10 +125,14 @@ class HomePage extends Component {
                         <Grid.Column style={{maxWidth: 450}}>
                             <Form size='large'>
                                 <Segment stacked>
-                                    <Form.Input label='Имя горшка' value={potForEdit.name} name='name' onChange={(e)=>this.onChange(e) }/>
-                                    <Form.Input label='Миимальная влажность' value={potForEdit.minHumidity} name='minHumidity' onChange={(e)=>this.onChange(e)}/>
-                                    <Form.Input label='Интервал проверки, мин' value={potForEdit.checkInterval} name='checkInterval' onChange={(e)=>this.onChange(e)}/>
-                                    <Form.Input label='Время работы помпы, с' value={potForEdit.wateringDuration} name='wateringDuration' onChange={(e)=> this.onChange(e)}/>
+                                    <Form.Input label='Имя горшка' value={potForEdit.name} name='name'
+                                                onChange={(e) => this.onChange(e)}/>
+                                    <Form.Input label='Миимальная влажность' value={potForEdit.minHumidity}
+                                                name='minHumidity' onChange={(e) => this.onChange(e)}/>
+                                    <Form.Input label='Интервал проверки, мин' value={potForEdit.checkInterval}
+                                                name='checkInterval' onChange={(e) => this.onChange(e)}/>
+                                    <Form.Input label='Время работы помпы, с' value={potForEdit.wateringDuration}
+                                                name='wateringDuration' onChange={(e) => this.onChange(e)}/>
 
                                     <Message
                                         error

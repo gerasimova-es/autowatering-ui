@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {DateTimeInput} from 'semantic-ui-calendar-react'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 import {
     Form,
     Button
@@ -10,6 +12,7 @@ class DateTimeForm extends Component {
         super(props);
 
         this.state = {
+            startDate: new Date(),
             dateFrom: '',
             dateTo: '',
         };
@@ -26,13 +29,22 @@ class DateTimeForm extends Component {
         }
     };
 
+    handleChangee = (event) => {
+        console.log(event);
+        // event.persist();
+        // if (this.state.hasOwnProperty(name)) {
+        //     console.log(event);
+        //     this.setState({[name]: value});
+        // }
+    };
+
     handle = event => {
         event.persist();
         console.log(event);
     };
 
     render() {
-        const {dateTo, dateFrom} = this.state;
+        const {dateTo, dateFrom, startDate} = this.state;
 
         return (
             <Form>
@@ -51,6 +63,17 @@ class DateTimeForm extends Component {
                     onChange={this.handleChange}
                 />
                 <Button onClick={this.handle}>Получить статистику</Button>
+                <div className='date-picker'>
+                <DatePicker
+                    selected={startDate}
+                    onChange={this.handleChangee}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
+                />
+                </div>
             </Form>
         );
     }
