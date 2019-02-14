@@ -15,7 +15,6 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-calendar-react": "^0.13.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0"
   },
@@ -45,5 +44,5 @@
     "eslint-plugin-prettier": "^3.0.1",
     "prettier": "^1.16.1"
   },
-  "proxy": "http://192.168.1.35:8080/autowatering"
+  "proxy": "http://192.168.1.34:8080/autowatering"
 }

@@ -122,15 +122,7 @@ class HomePageNew extends Component {
         return null
     };
 
-    fetchStatistics = () => {
 
-        this.props.fetchStatistic({
-            code: 'AUTHORIUM',
-            dateFrom: `${new Date(2017, 0, 1).toISOString().slice(0, 10)  } 00:00:00`,
-            // dateTo: new Date().format('yyyy-MM-dd HH:mm:ss')
-            dateTo: `${new Date().toISOString().slice(0, 10)  } 00:00:00`
-        });
-    };
 
     handleChange = (event, {name, value}) => {
         console.log(event);
@@ -216,7 +208,7 @@ class HomePageNew extends Component {
                     <Header as='h1'>Статистика:</Header>
                     <p>В таблице представлены данные по влажности и времени</p>
                 </Container>
-                <DateTimeFrom/>
+                <DateTimeFrom />
 
 
                 <Modal open={showModal}>
