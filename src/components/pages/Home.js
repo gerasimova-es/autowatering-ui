@@ -129,9 +129,9 @@ class HomePage extends Component {
                                                 onChange={(e) => this.onChange(e)}/>
                                     <Form.Input label='Миимальная влажность' value={potForEdit.minHumidity}
                                                 name='minHumidity' onChange={(e) => this.onChange(e)}/>
-                                    <Form.Input label='Интервал проверки, мин' value={potForEdit.checkInterval}
+                                    <Form.Input label='Интервал проверки (мин)' value={potForEdit.checkInterval}
                                                 name='checkInterval' onChange={(e) => this.onChange(e)}/>
-                                    <Form.Input label='Время работы помпы, с' value={potForEdit.wateringDuration}
+                                    <Form.Input label='Время работы помпы (сек)' value={potForEdit.wateringDuration}
                                                 name='wateringDuration' onChange={(e) => this.onChange(e)}/>
 
                                     <Message

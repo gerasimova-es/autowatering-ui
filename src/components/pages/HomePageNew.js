@@ -142,6 +142,7 @@ class HomePageNew extends Component {
         const table = pots.map((item) => (
             <Table.Row key={item.id}>
                 <Table.Cell textAlign='center'>{item.name}</Table.Cell>
+                <Table.Cell textAlign='center'>{item.humidity}</Table.Cell>
                 <Table.Cell textAlign='center'>{item.minHumidity}</Table.Cell>
                 <Table.Cell textAlign='center'>{item.checkInterval}</Table.Cell>
                 <Table.Cell textAlign='center'>{item.wateringDuration}</Table.Cell>
@@ -166,22 +167,23 @@ class HomePageNew extends Component {
 
                         <Dropdown item simple text='Меню'>
                             <Dropdown.Menu>
-                                <Dropdown.Item>Таблица горшков</Dropdown.Item>
-                                <Dropdown.Item>Статистика</Dropdown.Item>
+                                <Dropdown.Item>Растения</Dropdown.Item>
+                                <Dropdown.Item>Статистика полива</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Container>
                 </Menu>
 
                 <Container text style={{marginTop: '7em'}}>
-                    <Header as='h1'>Таблица горшков:</Header>
-                    <p>В таблице представлены данные о всех горшках в системе</p>
+                    <Header as='h1'>Растения:</Header>
+                    <p>В таблице представлены данные о всех растениях в системе</p>
                 </Container>
                 <Container style={{marginTop: '1em', width: '80%'}}>
                     <Table celled style={{}}>
                         <Table.Header>
                             <Table.Row textAlign='center'>
                                 <Table.HeaderCell>Имя</Table.HeaderCell>
+                                <Table.HeaderCell>Текущая влажность</Table.HeaderCell>
                                 <Table.HeaderCell>Миимальная влажность</Table.HeaderCell>
                                 <Table.HeaderCell>Интервал проверки,<br/> мин</Table.HeaderCell>
                                 <Table.HeaderCell>Время работы помпы,<br/> с</Table.HeaderCell>
@@ -197,7 +199,7 @@ class HomePageNew extends Component {
                                 <Table.HeaderCell colSpan='5'>
                                     <Button floated='right' icon labelPosition='left' size='small'
                                             onClick={() => this.addNewPot()}>
-                                        <Icon name='add'/> Добавить горшок
+                                        <Icon name='add'/> Добавить растение
                                     </Button>
                                 </Table.HeaderCell>
                             </Table.Row>
